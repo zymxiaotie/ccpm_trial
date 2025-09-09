@@ -122,11 +122,10 @@ else
     epic_type="feature"
 fi
 
-# Create epic issue
+# Create epic issue (without custom labels for now)
 epic_output=$(gh issue create \
     --title "Epic: $ARGUMENTS" \
-    --body-file /tmp/epic-body.md \
-    --label "epic,epic:$ARGUMENTS,$epic_type")
+    --body-file /tmp/epic-body.md)
 epic_number=$(echo "$epic_output" | grep -o 'https://github.com/[^/]*/[^/]*/issues/[0-9]*' | grep -o '[0-9]*$')
 
 echo "✅ Created epic issue #$epic_number"
@@ -155,19 +154,17 @@ for task_file in .claude/epics/$ARGUMENTS/[0-9][0-9][0-9].md; do
     # Strip frontmatter from task content
     sed '1,/^---$/d; 1,/^---$/d' "$task_file" > /tmp/task-body.md
 
-    # Create sub-issue with labels
+    # Create sub-issue (without custom labels for now)
     if [ "$use_subissues" = true ]; then
         task_output=$(gh sub-issue create \
             --parent "$epic_number" \
             --title "$task_name" \
-            --body-file /tmp/task-body.md \
-            --label "task,epic:$ARGUMENTS")
+            --body-file /tmp/task-body.md)
         task_number=$(echo "$task_output" | grep -o 'https://github.com/[^/]*/[^/]*/issues/[0-9]*' | grep -o '[0-9]*$')
     else
         task_output=$(gh issue create \
             --title "$task_name" \
-            --body-file /tmp/task-body.md \
-            --label "task,epic:$ARGUMENTS")
+            --body-file /tmp/task-body.md)
         task_number=$(echo "$task_output" | grep -o 'https://github.com/[^/]*/[^/]*/issues/[0-9]*' | grep -o '[0-9]*$')
     fi
 
