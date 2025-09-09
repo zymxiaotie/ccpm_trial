@@ -63,3 +63,89 @@ Using the test-runner agent ensures:
 - NO OVER-ENGINEERING - Don't add unnecessary abstractions, factory patterns, or middleware when simple functions would work. Don't think "enterprise" when you need "working"
 - NO MIXED CONCERNS - Don't put validation logic inside API handlers, database queries inside UI components, etc. instead of proper separation
 - NO RESOURCE LEAKS - Don't forget to close database connections, clear timeouts, remove event listeners, or clean up file handles
+
+## **🔧 Let's Complete Git Setup First**
+
+Since you have the Git configuration guide in your CLAUDE.md file, let's follow those steps:
+
+### **Step 1: Configure Your Git Identity**
+
+You need to run these commands in your terminal:
+
+```bash
+# Set your name (replace with your actual name)
+git config --global user.name "May Zhang"
+
+# Set your email (replace with your GitHub email)
+git config --global user.email "your.email@example.com"
+```
+
+### **Step 2: Set Git Defaults**
+
+```bash
+# Set default branch to main
+git config --global init.defaultBranch main
+
+# Configure line endings for macOS
+git config --global core.autocrlf input
+```
+
+### **Step 3: Verify Configuration**
+
+```bash
+# Check your configuration
+git config --list
+```
+
+### **Step 4: Commit Your Current Work**
+
+```bash
+# Add all files
+git add .
+
+# Commit with a message
+git commit -m "Initial CCPM setup with fintech data migration project"
+
+# Check status
+git status
+```
+
+### **Step 5: Push to GitHub**
+
+```bash
+# Push to GitHub
+git push -u origin main
+```
+
+## **🎯 After Git Setup:**
+
+Once you've completed the Git configuration and pushed your work, you can run:
+
+```bash
+<code_block_to_apply_changes_from>
+```
+
+This will:
+- Create a GitHub issue for your epic
+- Create 8 sub-issues for your tasks
+- Set up proper issue relationships
+- Enable the full CCPM workflow
+
+## **❓ Questions:**
+
+1. **What's your full name?** (for `git config --global user.name`)
+2. **What email do you use with GitHub?** (for `git config --global user.email`)
+3. **Have you run these Git commands yet?**
+
+## **💡 Alternative Approach:**
+
+If you want to skip GitHub sync for now, you can:
+
+1. **Start working on Task #001** directly
+2. **Use `/pm:epic-start my-first-feature`** to set up a worktree
+3. **Complete Git setup later** when you're ready to sync
+
+**What would you prefer to do?**
+- Complete Git configuration first?
+- Start working on tasks locally?
+- Try a different approach?
